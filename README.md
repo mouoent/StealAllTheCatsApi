@@ -1,4 +1,4 @@
-﻿﻿# StealAllTheCats API
+# Steal All The Cats API
 
 ## Table of Contents
 
