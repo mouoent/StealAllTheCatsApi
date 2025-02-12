@@ -28,6 +28,7 @@ This service supports the following operations:
 - Paginated retrieval of cat images.
 - Search for cats by tags.
 - Cache cat images locally
+- Background service that periodically updates database with image data
 - API documentation via Swagger
 
 ## Installation and Setup
