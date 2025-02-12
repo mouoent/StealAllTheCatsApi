@@ -34,7 +34,7 @@ This service supports the following operations:
 
 ### 1. Clone the repository:   
 ```bash
-git clone https://github.com/mouoent/steal-all-the-cats-api.git
+git clone https://github.com/mouoent/StealAllTheCatsApi.git
 cd StealAllTheCats/StealAllTheCats.API
 ```
 ### 2. Restore NuGet packages:
