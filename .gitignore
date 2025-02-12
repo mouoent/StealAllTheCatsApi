@@ -1,0 +1,12 @@
+# Ignore Visual Studio stuff
+.vs/
+*.user
+*.suo
+
+# Ignore build output
+bin/
+obj/
+
+# Ignore sensitive configs
+appsettings*.json
+secrets.json

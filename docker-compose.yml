@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+    sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        container_name: stealallthecats_sql
+        environment:
+          SA_PASSWORD: "YourStrong!Passw0rd"
+          ACCEPT_EULA: "Y"
+        ports:
+          - "1433:1433"
+        volumes:
+          - sql_data:/var/opt/mssql
+          - ./init.sql:/tmp/init.sql
+        healthcheck:
+          test: [ "CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'YourStrong!Passw0rd' -Q 'SELECT 1'" ]
+          interval: 10s
+          retries: 5
+          start_period: 20s
+        restart: always
+    api:
+        build:
+          context: .
+          dockerfile: StealAllTheCats.API/Dockerfile
+        container_name: stealallthecats_api
+        environment:
+          - ConnectionStrings__DefaultConnection=Server=TONY\SQLEXPRESS;Database=StealAllTheCatsDB;Trusted_Connection=True;Integrated Security=True;Encrypt=False
+        working_dir: /app
+        command: ["dotnet", "StealAllTheCats.API.dll"]
+        ports:
+          - "8080:8080"
+        restart: always
+
+
+    volumes:
+        sql_data:
