@@ -8,5 +8,5 @@ bin/
 obj/
 
 # Ignore sensitive configs
-appsettings*.json
+appsettings.Development.json
 secrets.json
